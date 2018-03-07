@@ -16,41 +16,22 @@ export default new Router({
 					component: function(resolve) {
 						require(['@/views/home'], resolve);
 					}
+				},{
+					path: 'canvas-course',
+					component: function(resolve) {
+						require(['@/views/html5/canvas-course'], resolve);
+					}
+				},{
+					path: 'canvas-well',
+					component: function(resolve) {
+						require(['@/views/html5/well'], resolve);
+					}
+				},{
+					path: 'svg',
+					component: function(resolve) {
+						require(['@/views/html5/svg'], resolve);
+					}
 				}
-				// },{
-				// 	path: '/Echarts',
-				// 	component: function(resolve) {
-				// 		require(['@/views/Echarts/Index'], resolve);
-				// 	}
-				// },{
-				// 	path: '/TreeView',
-				// 	component: function(resolve) {
-				// 		require(['@/views/Tree/Index'], resolve);
-				// 	}
-				// },{
-				// 	path: '/Canvas',
-				// 	component: function(resolve) {
-				// 		require(['@/views/HTML5/CanvasIndex'], resolve);
-				// 	},
-				// 	children: [
-				// 		{
-				// 			path: '/Canvas/Course',
-				// 			component: function(resolve) {
-				// 				require(['@/views/HTML5/CanvasCourse'], resolve);
-				// 			}
-				// 		},{
-				// 			path: '/Canvas/Well',
-				// 			component: function(resolve) {
-				// 				require(['@/views/HTML5/Well'], resolve);
-				// 			}
-				// 		}
-				// 	]
-				// },{
-				// 	path: '/SVG',
-				// 	component: function(resolve) {
-				// 		require(['@/views/HTML5/SVG'], resolve);
-				// 	}
-				// }
 			]
 		},{ // 404
 			path: '/*',

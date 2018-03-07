@@ -44,6 +44,17 @@ ul li, ol li {
     }
     .el-aside {
         background-color: @leftMenuBgColor;
+        .shrink {
+            display: block;
+            line-height: 40px;
+            cursor: pointer;
+            text-align: center;
+            color: @leftMenuColor;
+            border-bottom: 1px solid @leftMenuActiveBgColor;
+            &:hover {
+                background-color: @leftMenuActiveBgColor;
+            }
+        }
     }
 }
 

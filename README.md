@@ -68,10 +68,19 @@ import VueResource from 'vue-resource'
 Vue.use(VueResource);
 ```
 
+# 引入echarts
+``` bash
+cnpm install 引入echarts --save
+```
+> 在main.js中插入一下代码
+``` bash
+import echarts from 'echarts';
+Vue.prototype.$echarts = echarts;
+```
 
-# 打包时默认更目录修改
+# 打包时默认根目录修改
 > config/index.js文件中找到build对象下面的assetsPublicPath属性，地址改为'./'相对地址
 > build/utils.js文件中找到return ExtractTextPlugin.extract对象，加上publicPath: '../../'属性
 
-# 局域网访问本地开发环境(本地ip和localhsot都可以访问)
+# 局域网访问本地开发环境(使本地ip和localhsot都可以访问)
 > 修改package.json中scripts下的dev结尾加上参数 " --host 0.0.0.0"

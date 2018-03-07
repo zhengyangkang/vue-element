@@ -10,6 +10,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "echarts": "^4.0.4",
     "element-ui": "^2.2.1",
     "less": "^3.0.1",
     "less-loader": "^4.0.6",
