@@ -78,6 +78,9 @@ import echarts from 'echarts';
 Vue.prototype.$echarts = echarts;
 ```
 
+# 修改启动端口号
+> 修改config/index.js中dev对象中的port属性即可
+
 # 打包时默认根目录修改
 > config/index.js文件中找到build对象下面的assetsPublicPath属性，地址改为'./'相对地址
 > build/utils.js文件中找到return ExtractTextPlugin.extract对象，加上publicPath: '../../'属性

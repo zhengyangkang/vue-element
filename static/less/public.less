@@ -10,7 +10,7 @@ body {
     	-webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;
 	}
 }
-html, body, #app, .el-container {
+html, body, #app, .el-container, .el-aside .el-menu-vertical-demo {
     height: 100%;
 }
 a {
@@ -43,7 +43,9 @@ ul li, ol li {
         }
     }
     .el-aside {
-        background-color: @leftMenuBgColor;
+        .el-menu-vertical-demo:not(.el-menu--collapse) {
+            width: 200px;
+        }
         .shrink {
             display: block;
             line-height: 40px;
