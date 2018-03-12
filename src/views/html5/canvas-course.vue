@@ -20,7 +20,6 @@
 				<canvas v-if="item.isNeedTwo" :id="getIds(index, '1')" width="100px" height="50px"></canvas>
 			</div>
 		</div>
-		<router-link to="canvas-well">实战，井字游戏</router-link>
 	</div>
 </template>
 <script>

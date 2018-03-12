@@ -15,5 +15,17 @@ module.exports = [
                 href: "/svg"
             }
         ]
+    },{
+        text: "小游戏",
+        icon: "el-icon-service",
+        item: [
+            {
+                text: "贪吃蛇",
+                href: "/retro-snaker"
+            },{
+                text: "五子棋",
+                href: "/gobang"
+            }
+        ]
     }
 ];
