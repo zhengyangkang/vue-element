@@ -37,6 +37,10 @@
 		mounted() {
 			this.createCanvas();
 		},
+		beforeRouteLeave(to, from, next) {
+			clearInterval(this.timer);// 销毁页面之前清除定时器
+			next();
+		},
 		methods: {
 			createCanvas() {
 				var $that = this,

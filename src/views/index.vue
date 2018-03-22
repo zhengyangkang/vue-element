@@ -56,7 +56,7 @@
         },
         methods: {
             setPageIndex() {
-                console.log("click event2");
+                // console.log("click event2");
             },
             getNowTime() {
                 var $that = this,
