@@ -61,11 +61,15 @@ import Vuex from 'vuex'
 Vue.use(Vuex);
 ```
 
-# 引入vue-resource(这里没有使用到，所以未配置)
-> 在main.js中插入一下代码
+# 引入axios
 ``` bash
-import VueResource from 'vue-resource'
-Vue.use(VueResource);
+cnpm install axios --save
+cnpm install qs --save
+```
+
+# 引入vue-socket.io
+``` bash
+cnpm install vue-socket.io --save
 ```
 
 # 引入echarts

@@ -1,54 +1,48 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-
+import Index from '@/views/index'
+import Home from '@/views/home'
+import CanvasCourse from '@/views/html5/canvas-course'
+import Svg from '@/views/html5/svg'
+import RetroSnaker from '@/views/games/retro-snaker'
+import Gobang from '@/views/games/gobang'
+import chat from '@/views/websocket/chat'
+import Error from '@/views/error'
 Vue.use(Router)
 
 export default new Router({
     routes: [
 		{
 			path: '/',
-			component: function(resolve) {
-				require(['@/views/index'], resolve);
-			},
+			component: Index,
 			children: [
 				{ // 首页
 					path: '',
-					component: function(resolve) {
-						require(['@/views/home'], resolve);
-					}
+					component: Home
 				},{ //html5
 					path: 'canvas-course',
-					component: function(resolve) {
-						require(['@/views/html5/canvas-course'], resolve);
-					}
+					component: CanvasCourse
 				},{
 					path: 'svg',
-					component: function(resolve) {
-						require(['@/views/html5/svg'], resolve);
-					}
+					component: Svg
 				},{ // 小游戏
 					path: 'retro-snaker',
-					component: function(resolve) {
-						require(['@/views/games/retro-snaker'], resolve);
-					}
+					component: RetroSnaker
 				},{
 					path: 'gobang',
-					component: function(resolve) {
-						require(['@/views/games/gobang'], resolve);
-					}
+					component: Gobang
+				},{ // websocket
+					path: 'chat',
+					component: chat
 				}
 			]
 		},{ // 404
 			path: '/*',
-			component: function(resolve) {
-				require(['@/views/index'], resolve);
-			},
+			component: Index,
             children:[
                 {
                     path: '',
-                    component: function(resolve) {
-                        require(['@/views/error'], resolve);
-                    }
+                    component: Error
                 }
             ]
 		}

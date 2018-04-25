@@ -27,5 +27,14 @@ module.exports = [
                 href: "/gobang"
             }
         ]
+    },{
+        text: "websocket",
+        icon: "el-icon-phone",
+        item: [
+            {
+                text: "公共聊天室",
+                href: "/chat"
+            }
+        ]
     }
 ];

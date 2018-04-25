@@ -1,7 +1,12 @@
 <template>
     <el-container>
         <el-header :style="{'line-height': headerHeight, 'height': headerHeight}">
-            <div class="time">{{ time }}</div>
+            <div class="time">
+                <span>{{ time }}</span>
+                <span v-if="unReadNum" class="unRead">
+                    <el-badge :value="unReadNum" class="item"></el-badge>
+                </span>
+            </div>
         </el-header>
         <el-container>
             <el-aside :width="menuWidth">
@@ -16,17 +21,17 @@
                                 <span>{{ val.text }}</span>
                             </template>
                             <!-- index 作为 path 进行路由跳转 -->
-                            <el-menu-item v-for="(io, idx) in val.item" :index="io.href" :key="ids + '-' + idx" @click="setPageIndex(io.href)">{{ io.text }}</el-menu-item>
+                            <el-menu-item v-for="(io, idx) in val.item" :index="io.href" :key="ids + '-' + idx">{{ io.text }}</el-menu-item>
                         </el-submenu>
                         <!-- index 作为 path 进行路由跳转 -->
-                        <el-menu-item v-else :index="val.href" :key="ids + ''" @click="setPageIndex(val.href)">
+                        <el-menu-item v-else :index="val.href" :key="ids + ''">
                             <i :class="val.icon"></i>
                             <span slot="title">{{ val.text }}</span>
                         </el-menu-item>
                     </template>
                 </el-menu>
             </el-aside>
-            <el-main>
+            <el-main id="el-main">
                 <router-view />
             </el-main>
         </el-container>
@@ -43,11 +48,20 @@
                 isOnlyOpenOne: true,// 是否只打开一个子菜单
                 menuData: menuData,// 数据源
                 isCollapse: false, // 是否水平折叠收起菜单，只有是垂直排列的可用
-                time: ""
+                time: "",
+                unReadNum: 0 // 没有阅读的消息数量
+            }
+        },
+        sockets: {
+            receiveMsg(val) {
+                if(this.$route.path == "/websocket")
+                    this.unReadNum = 0;
+                else
+                    this.unReadNum += 1;
             }
         },
         computed: {
-            activeIndex: function(){
+            activeIndex: function() {
                 return this.$route.path || "/";
             }
         },
@@ -55,9 +69,6 @@
             this.getNowTime();
         },
         methods: {
-            setPageIndex() {
-                // console.log("click event2");
-            },
             getNowTime() {
                 var $that = this,
                     $date =  new Date(),
@@ -71,3 +82,8 @@
         }
     }
 </script>
+<style scoped>
+    .unRead {
+        cursor: pointer;
+    }
+</style>

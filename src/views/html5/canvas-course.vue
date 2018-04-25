@@ -1,20 +1,20 @@
 <template>
 	<div>
-		<div v-for="(item, index) in dataList">
+		<div v-for="(item, index) in dataList" :key="index">
 			<h3>{{ index + 1 }}、{{ item.title }}</h3>
 			<div class="h-con1" v-if="item.isArry">
 				<p v-if="item.tip">{{ item.tip }}</p>
-				<div v-for="(io, idx) in item.item">
+				<div v-for="(io, idx) in item.item" :key="idx">
 					<h5>{{ io.title }}</h5>
 					<div class="h-con1">
-						<p v-if="io.list && io.list.length > 0" v-for="im in io.list">{{ im }}</p>					
+						<p v-if="io.list && io.list.length > 0" v-for="(im, ik) in io.list" :key="ik">{{ im }}</p>
 						<canvas :id="getIds(index, idx + 1)" width="100px" height="50px"></canvas>
 						<canvas v-if="io.isNeedTwo" :id="getIds(index, idx + 1, '1')" width="100px" height="50px"></canvas>
 					</div>
 				</div>
 			</div>
 			<div class="h-con1" v-else>
-				<p v-if="item.item && item.item.length > 0" v-for="io in item.item">{{ io }}</p>
+				<p v-if="item.item && item.item.length > 0" v-for="(io, im) in item.item" :key="im">{{ io }}</p>
 				<img v-if="item.pic" :src="item.pic" id="scream" />
 				<canvas :id="getIds(index)" width="100px" height="50px"></canvas>
 				<canvas v-if="item.isNeedTwo" :id="getIds(index, '1')" width="100px" height="50px"></canvas>

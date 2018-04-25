@@ -150,7 +150,6 @@
 					isWin = false, // 是否赢
 					rows = $that.casWidth / $that.sSize,
 					continuityNum = 0; // 当前连续数量
-				debugger;
 				for(var i = 0; i < $that.lattice.length; i++) {
 					if(continuityNum == $that.winSize) {
 						break;
